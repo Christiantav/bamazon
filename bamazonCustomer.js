@@ -104,11 +104,10 @@ function promptCustomerForQuantity(product) {
 
 function makePurchase(product, quantity) {
     connection.query(
-        "UPDATE products SET stock_count = stock_count - ? WHERE item_id = ?",
-        [quantity, product.item_id],
+        "UPDATE products SET stock_count = stock_count - ?, item_sales = item_sales + ? WHERE item_id = ?",
+        [quantity, product.price * quantity, product.item_id],
         function(err, res) {
-        
-        console.log("\nSuccessfully purchased " + quantity + " " + product.item_name + "'s!");
+            console.log("\nSuccessfully purchased " + quantity + " " + product.item_name + "'s!");    
         loadItems();
         }
     );

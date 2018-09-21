@@ -6,6 +6,7 @@ USE bamazon;
 CREATE TABLE products(
   item_id INT AUTO_INCREMENT NOT NULL,
   item_name VARCHAR(30) NOT NULL,
+  item_sales DECIMAL(10,2) DEFAULT 0,
   category_name VARCHAR(30) NOT NULL,
   price DECIMAL(10,2) NOT NULL,
   stock_count INT(10) NOT NULL,

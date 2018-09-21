@@ -60,7 +60,7 @@ function loadManagerOptions(products) {
 
 function loadLowInventory() {
     
-    connection.query("SELECT * FROM products WHERE stock_count <= 5", function(err, res) {
+    connection.query("SELECT * FROM products WHERE stock_count <= 3", function(err, res) {
         if (err) throw err;
         
         console.table(res);
